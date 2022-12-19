@@ -7,7 +7,19 @@
     <title>Lobby</title>
 </head>
 <body>
-    
+    <h1>Let's Chat!</h1>
+    <form id="form">
+        <input type="text" name="message" id="">
+
+    </form>
+    <script type="text/javascript">
+        let url=`ws://${window.location.host}/ws/socket-server/`
+        const chatsocket=new WebSocket(url)
+        chatsocket.onmessage=function(e){
+            let data=JSON.parse(e.data)
+            console.log('Data',data)
+        }
+    </script>
     
 </body>
 </html>
